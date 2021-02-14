@@ -8,32 +8,32 @@
     {
       return this.m_fullName;
     }
-
+  
     set FullName(value) 
     {
       this.m_fullName = value;
     }
-
+  
     get ContactNumber() 
     {
       return this.m_contactNumber;
     }
-
+  
     set ContactNumber(value) 
     {
       this.m_contactNumber = value;
     }
-
+  
     get EmailAddress() 
     {
       return this.m_emailAddress;
     }
-
+  
     set EmailAddress(value) 
     {
       this.m_emailAddress = value;
     }
-
+  
     // constructor
 
     /**
@@ -110,4 +110,5 @@
   core.Contact = Contact;
 
 })(core || (core={}));
+
 

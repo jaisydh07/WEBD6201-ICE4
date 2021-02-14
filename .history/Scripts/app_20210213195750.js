@@ -57,7 +57,7 @@
         mainContent.innerHTML = `<h1 id="firstHeading">Welcome to WEBD6201 - Lab 1</h1>
          <p id="paragraphOne" class="fs-3 fw-bold">This is my first Paragraph</p>
         `;
-
+        
     }
 
     function displayAbout()
@@ -101,7 +101,9 @@
 
             if(contact.serialize())
             {
-              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
+              let key = contact.FullName.substring(0, 1) + Date.now();
+
+              localStorage.setItem(key, contact.serialize());
             }
           }
         });
@@ -115,23 +117,20 @@
 
         let data = "";
 
-        let keys = Object.keys(localStorage);
-
-
-        for (const key of keys) 
+        for (let index = 0; index < localStorage.length; index++) 
         {
-          let contactData = localStorage.getItem(key);
+          let contactData = localStorage.getItem((index + 1).toString());
 
           let contact = new core.Contact();
           contact.deserialize(contactData);
 
           data += `<tr>
-          <th scope="row">${key}</th>
+          <th scope="row">${index + 1}</th>
           <td>${contact.FullName}</td>
           <td>${contact.ContactNumber}</td>
           <td>${contact.EmailAddress}</td>
-          <td class="text-center"><button value="${key}" class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</button></td>
-          <td class="text-center"><button value="${key}" class="btn btn-danger btn-sm delete"><i class="fas fa-trash-alt fa-sm"></i> Delete</button></td>
+          <td class="text-center"><button value="${index + 1}" class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</button></td>
+          <td class="text-center"><button value="${index + 1}" class="btn btn-danger btn-sm delete"><i class="fas fa-trash-alt fa-sm"></i> Delete</button></td>
         </tr>`;
         }
 
@@ -142,6 +141,7 @@
           console.log($(this).val());
          });
 
+         //TODO - need to fix this item - it breaks when we delete a middle item
          $("button.delete").on("click", function(){
            if(confirm("Are you sure?"))
            {
@@ -152,7 +152,7 @@
       }
     }
 
-
+     
 
     function Start()
     {
@@ -179,11 +179,11 @@
             displayContactList();
           break;
         }
-
+        
     }
 
     window.addEventListener("load", Start);
 
     core.Start = Start;
 
-})(core || (core={})); 
+})(core || (core={}));
