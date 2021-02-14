@@ -130,19 +130,6 @@
               messageArea.removeAttr("class").hide();
           }
         });
-      }
-
-      function formValidation()
-      {
-        testFullName();
-        testContactNumber();
-        testEmailAddress();
-      }
-  
-      function displayContact()
-      {
-        // form validation
-        formValidation();
 
         $("#sendButton").on("click", (event)=> 
         {
@@ -235,9 +222,6 @@
         // modify edit button so that it shows "Add" as well as the appropriate icon
         $("#editButton").html(`<i class="fas fa-plus-circle fa-lg"></i> Add`);
       }
-
-      // form validation
-      formValidation();
 
       $("#editButton").on("click", function() 
       {
