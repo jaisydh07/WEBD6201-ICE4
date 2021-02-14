@@ -139,9 +139,10 @@
         }
 
         contactList.innerHTML = data;
-        
+
+        //TODO - need to create an edit page
         $("button.edit").on("click", function(){
-          location.href = "edit.html#" +$(this).val();
+          console.log($(this).val());
          });
 
          $("button.delete").on("click", function(){
@@ -153,6 +154,7 @@
          });
       }
     }
+
 
 
     function Start()
@@ -178,10 +180,7 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
-          case "Edit":
-            displayEdit();
-            break;  
+          break;
         }
 
     }

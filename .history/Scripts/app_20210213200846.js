@@ -120,7 +120,7 @@
         let keys = Object.keys(localStorage);
 
         let index = 1;
-
+        
         for (const key of keys) 
         {
           let contactData = localStorage.getItem(key);
@@ -129,19 +129,20 @@
           contact.deserialize(contactData);
 
           data += `<tr>
-          <th scope="row">${index}</th>
+          <th scope="row">${key}</th>
           <td>${contact.FullName}</td>
           <td>${contact.ContactNumber}</td>
           <td>${contact.EmailAddress}</td>
           <td class="text-center"><button value="${key}" class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</button></td>
           <td class="text-center"><button value="${key}" class="btn btn-danger btn-sm delete"><i class="fas fa-trash-alt fa-sm"></i> Delete</button></td>
-          </tr>`;
+        </tr>`;
         }
 
         contactList.innerHTML = data;
-        
+
+        //TODO - need to create an edit page
         $("button.edit").on("click", function(){
-          location.href = "edit.html#" +$(this).val();
+          console.log($(this).val());
          });
 
          $("button.delete").on("click", function(){
@@ -153,6 +154,7 @@
          });
       }
     }
+
 
 
     function Start()
@@ -178,10 +180,7 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
-          case "Edit":
-            displayEdit();
-            break;  
+          break;
         }
 
     }

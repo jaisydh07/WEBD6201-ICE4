@@ -154,7 +154,7 @@
       }
     }
 
-
+    
     function Start()
     {
         console.log("App Started...");
@@ -178,10 +178,7 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
-          case "Edit":
-            displayEdit();
-            break;  
+          break;
         }
 
     }

@@ -141,7 +141,7 @@
         contactList.innerHTML = data;
         
         $("button.edit").on("click", function(){
-          location.href = "edit.html#" +$(this).val();
+          location.href = "edit.html#" +$(this).val());
          });
 
          $("button.delete").on("click", function(){
@@ -153,6 +153,7 @@
          });
       }
     }
+
 
 
     function Start()
@@ -178,10 +179,7 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
-          case "Edit":
-            displayEdit();
-            break;  
+          break;
         }
 
     }
